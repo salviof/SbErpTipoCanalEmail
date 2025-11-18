@@ -14,7 +14,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.EntidadeLocalPostagem;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.ComoEntidadeComIcone;
 
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.ItemNormal;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.EntidadeNormal;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,7 +25,7 @@ import java.util.List;
  * @author Salvio
  */
 @InfoObjetoSB(plural = "Usuários", tags = {"Usuário"})
-public class UsuarioTestesComunicacao extends ItemNormal implements ComoUsuario, ComoEntidadeComIcone, Serializable {
+public class UsuarioTestesComunicacao extends EntidadeNormal implements ComoUsuario, ComoEntidadeComIcone, Serializable {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;
