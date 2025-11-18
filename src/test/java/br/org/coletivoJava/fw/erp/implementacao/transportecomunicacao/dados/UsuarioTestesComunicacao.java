@@ -9,10 +9,10 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.Info
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfGrupoUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfLocal;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfLocalPostagem;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.ItfBeanComIcone;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.EntidadeLocal;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.EntidadeLocalPostagem;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.ComoEntidadeComIcone;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.ItemNormal;
 import java.io.Serializable;
@@ -25,7 +25,7 @@ import java.util.List;
  * @author Salvio
  */
 @InfoObjetoSB(plural = "Usuários", tags = {"Usuário"})
-public class UsuarioTestesComunicacao extends ItemNormal implements ItfUsuario, ItfBeanComIcone, Serializable {
+public class UsuarioTestesComunicacao extends ItemNormal implements ComoUsuario, ComoEntidadeComIcone, Serializable {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;
@@ -39,9 +39,9 @@ public class UsuarioTestesComunicacao extends ItemNormal implements ItfUsuario, 
     private Date dataHoraInsersao;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.REG_USUARIO_INSERCAO)
-    private ItfUsuario usuarioInsercao;
+    private ComoUsuario usuarioInsercao;
     @InfoCampo(tipo = FabTipoAtributoObjeto.REG_USUARIO_ALTERACAO)
-    private ItfUsuario usuarioAlteracao;
+    private ComoUsuario usuarioAlteracao;
 
     public UsuarioTestesComunicacao() {
         super();
@@ -157,7 +157,7 @@ public class UsuarioTestesComunicacao extends ItemNormal implements ItfUsuario, 
     }
 
     @Override
-    public ItfLocalPostagem getLocalizacao() {
+    public EntidadeLocalPostagem getLocalizacao() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -167,7 +167,7 @@ public class UsuarioTestesComunicacao extends ItemNormal implements ItfUsuario, 
     }
 
     @Override
-    public void setLocalizacao(ItfLocal localizacao) {
+    public void setLocalizacao(EntidadeLocal localizacao) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
