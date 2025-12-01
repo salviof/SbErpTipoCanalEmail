@@ -8,13 +8,13 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.ItensGenericos
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfGrupoUsuario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.EntidadeLocal;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.EntidadeLocalPostagem;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.ComoEntidadeComIcone;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.EntidadeNormal;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoGrupoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoTemIcone;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ComoLocal;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ComoLocalPostagem;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,7 +25,7 @@ import java.util.List;
  * @author Salvio
  */
 @InfoObjetoSB(plural = "Usuários", tags = {"Usuário"})
-public class UsuarioTestesComunicacao extends EntidadeNormal implements ComoUsuario, ComoEntidadeComIcone, Serializable {
+public class UsuarioTestesComunicacao extends EntidadeNormal implements ComoUsuario, ComoTemIcone, Serializable {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     private Long id;
@@ -117,17 +117,17 @@ public class UsuarioTestesComunicacao extends EntidadeNormal implements ComoUsua
     }
 
     @Override
-    public ItfGrupoUsuario getGrupo() {
+    public ComoGrupoUsuario getGrupo() {
         return new GrupoUsuariosDoSistema();
     }
 
     @Override
-    public void setGrupo(ItfGrupoUsuario grupo) {
+    public void setGrupo(ComoGrupoUsuario grupo) {
         System.out.println("Este usuário é estático e não pode ser manipulado..");
     }
 
     @Override
-    public List<ItfGrupoUsuario> getGruposAdicionais() {
+    public List<ComoGrupoUsuario> getGruposAdicionais() {
         return new ArrayList<>();
     }
 
@@ -157,7 +157,7 @@ public class UsuarioTestesComunicacao extends EntidadeNormal implements ComoUsua
     }
 
     @Override
-    public EntidadeLocalPostagem getLocalizacao() {
+    public ComoLocalPostagem getLocalizacao() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -167,7 +167,7 @@ public class UsuarioTestesComunicacao extends EntidadeNormal implements ComoUsua
     }
 
     @Override
-    public void setLocalizacao(EntidadeLocal localizacao) {
+    public void setLocalizacao(ComoLocal localizacao) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
