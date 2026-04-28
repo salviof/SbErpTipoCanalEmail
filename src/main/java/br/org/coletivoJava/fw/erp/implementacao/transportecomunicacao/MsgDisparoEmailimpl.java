@@ -1,8 +1,5 @@
 package br.org.coletivoJava.fw.erp.implementacao.transportecomunicacao;
 
-import com.super_bits.modulosSB.SBCore.modulos.erp.ItfServicoLinkDeEntidadesERP;
-import br.org.coletivoJava.fw.api.erp.transportecomunicacao.MsgDisparoEmailPadrao;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDisparoComunicacao;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.erp.repositorioLinkEntidades.RepositorioLinkEntidadesGenerico;
 import br.org.coletivoJava.fw.api.erp.transportecomunicacao.MsgDisparoEmail;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
@@ -16,8 +13,10 @@ public class MsgDisparoEmailimpl extends RepositorioLinkEntidadesGenerico
 
     @Override
     public String dispararInicioComunicacao(ItfDialogo pComunicacao) {
+
         String codigo = UtilCRCEmail.enviarPorServidorPadraoV2(pComunicacao.getDestinatario().getEmailsConcatenados(), pComunicacao.getMensagem(),
                 pComunicacao.getAssunto());
+
         return codigo;
 
     }
@@ -26,5 +25,25 @@ public class MsgDisparoEmailimpl extends RepositorioLinkEntidadesGenerico
     public void dispararRespostaComunicacao(
             com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo pComunicacao) {
         SBCore.getServicoComunicacao().getArmazenamento().getDialogoByCodigoSelo(pComunicacao.getCodigoSelo());
+    }
+
+    @Override
+    public boolean validarDadosDisparo(ItfDialogo dialogo) {
+        try {
+            if (dialogo.getDestinatario().getEmailsConcatenados() == null) {
+                return false;
+            }
+            if (dialogo.getMensagem() == null) {
+                return false;
+
+            }
+            if (dialogo.getAssunto() == null) {
+                return false;
+            }
+        } catch (Throwable t) {
+            return false;
+        }
+
+        return true;
     }
 }
