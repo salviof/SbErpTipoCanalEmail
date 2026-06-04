@@ -22,12 +22,6 @@ public class MsgDisparoEmailimpl extends RepositorioLinkEntidadesGenerico
     }
 
     @Override
-    public void dispararRespostaComunicacao(
-            com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo pComunicacao) {
-        SBCore.getServicoComunicacao().getArmazenamento().getDialogoByCodigoSelo(pComunicacao.getCodigoSelo());
-    }
-
-    @Override
     public boolean validarDadosDisparo(ItfDialogo dialogo) {
         try {
             if (dialogo.getDestinatario().getEmailsConcatenados() == null) {

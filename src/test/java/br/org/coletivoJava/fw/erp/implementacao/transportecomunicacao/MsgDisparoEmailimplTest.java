@@ -5,7 +5,7 @@
 package br.org.coletivoJava.fw.erp.implementacao.transportecomunicacao;
 
 import br.org.coletivoJava.fw.erp.implementacao.transportecomunicacao.dados.UsuarioTestesComunicacao;
-import br.org.coletivojava.erp.comunicacao.transporte.ERPTipoCanalComunicacao;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ERPTipoCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.comunicacao.FabTipoComunicacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.ItensGenericos.basico.UsuarioSistemaRoot;

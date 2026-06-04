@@ -5,7 +5,7 @@
  */
 package br.org.coletivoJava.testes.erp;
 
-import br.org.coletivojava.erp.comunicacao.transporte.ERPTipoCanalComunicacao;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ERPTipoCanalComunicacao;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
