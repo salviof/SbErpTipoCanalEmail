@@ -4,7 +4,7 @@ import com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.erp.reposito
 import br.org.coletivoJava.fw.api.erp.transportecomunicacao.MsgDisparoEmail;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCEmail;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogo;
 
 @MsgDisparoEmail
 public class MsgDisparoEmailimpl extends RepositorioLinkEntidadesGenerico
@@ -12,7 +12,7 @@ public class MsgDisparoEmailimpl extends RepositorioLinkEntidadesGenerico
         com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDisparoComunicacao {
 
     @Override
-    public String dispararInicioComunicacao(ItfDialogo pComunicacao) {
+    public String dispararInicioComunicacao(ComoDialogo pComunicacao) {
 
         String codigo = UtilCRCEmail.enviarPorServidorPadraoV2(pComunicacao.getDestinatario().getEmailsConcatenados(), pComunicacao.getMensagem(),
                 pComunicacao.getAssunto());
@@ -22,7 +22,7 @@ public class MsgDisparoEmailimpl extends RepositorioLinkEntidadesGenerico
     }
 
     @Override
-    public boolean validarDadosDisparo(ItfDialogo dialogo) {
+    public boolean validarDadosDisparo(ComoDialogo dialogo) {
         try {
             if (dialogo.getDestinatario().getEmailsConcatenados() == null) {
                 return false;

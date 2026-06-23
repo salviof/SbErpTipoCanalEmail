@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 import testesFW.TesteJUnitBasicoSemAcoes;
 import testesFW.TesteJUnitBasicoSemPersistencia;
 import testesFW.TesteJunitSBPersistencia;
-import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ItfDialogo;
+import com.super_bits.modulosSB.SBCore.modulos.comunicacao.ComoDialogo;
 import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ErroAcessandoCanalComunicacao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,7 +40,7 @@ public class MsgDisparoEmailimplTest extends TesteJUnitBasicoSemAcoes {
     public void testDispararInicioComunicacao() {
 
         UsuarioTestesComunicacao usuarionotificacao = new UsuarioTestesComunicacao();
-        ItfDialogo dialogo = SBCore.getServicoComunicacao().gerarComunicacaoSistema_Usuario(FabTipoComunicacao.NOTIFICAR,
+        ComoDialogo dialogo = SBCore.getServicoComunicacao().gerarComunicacaoSistema_Usuario(FabTipoComunicacao.NOTIFICAR,
                 usuarionotificacao, "Apenas teste", "Mensagem do teste de notificação via email");
         try {
             SBCore.getServicoComunicacao().dispararComunicacao(dialogo, ERPTipoCanalComunicacao.EMAIL);
